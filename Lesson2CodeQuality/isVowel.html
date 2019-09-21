@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<!-- 
+    This file contains Mocha unit tests for the isVowel function for w1d2 assignment
+    1.	Write a function isVowel() that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise. 
+-->
+<head>
+    <!-- add mocha css, to show results -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <!-- add mocha framework code -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+        mocha.setup('bdd'); // minimal setup
+    </script>
+    <!-- add chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+        // chai has a lot of stuff, let's make assert global
+        let assert = chai.assert;
+    </script>
+</head>
+
+<body>
+
+    <script>
+        /*
+        Defining Table
+        input: char -- character to be tested for isVowel
+        Processing: return the value of whether an array of vowels contains the char
+        output:  true or false
+               */
+        function isVowel( n) {
+            return ['a','e'].includes(n);
+        }
+    </script>
+
+    <!-- the script with tests (describe, it...) -->
+    <!-- <script src="test.js"></script> -->
+    <script src="isVowelTest.js"></script>
+
+    <!-- the element with id="mocha" will contain test results -->
+    <div id="mocha"></div>
+
+    <!-- run tests! -->
+    <script>
+        mocha.run();
+    </script>
+</body>
