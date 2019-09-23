@@ -1,3 +1,5 @@
+/* eslint-disable id-length */
+"use strict";
 /**
  * Returns x raised to the n-th power.
  *
@@ -9,7 +11,8 @@
     /* function code is to be written, empty now */
     //return 8;  //:) we cheat!!
 
-    xy = 33;  
+    //x = 33;  
+    debugger;
     let result = 1;
 
     for (let i = 0; i < n; i++) {
@@ -18,5 +21,5 @@
 
     return result;
 }
-x = 3;
+
 

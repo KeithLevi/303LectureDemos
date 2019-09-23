@@ -1,3 +1,5 @@
+"use strict";
+/* global pow assert */
 describe("pow", function() {
 
     it("raises to n-th power", function() {
