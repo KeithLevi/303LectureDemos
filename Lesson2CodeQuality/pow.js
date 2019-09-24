@@ -10,8 +10,7 @@
  function pow(x, n) {
     /* function code is to be written, empty now */
     //return 8;  //:) we cheat!!
-  
-    //x = 33;  
+
     debugger;
     let result = 1;     
 
