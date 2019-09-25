@@ -11,11 +11,10 @@
     /* function code is to be written, empty now */
     //return 8;  //:) we cheat!!
 
-    j = 33;  
-    debugger;
-    let result = 1;
+    debugger;  
+    let result = 1;     
 
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < n; i++) { 
         result *= x;
     }
 
