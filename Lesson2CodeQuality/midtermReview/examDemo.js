@@ -1,5 +1,6 @@
+/* eslint-disable require-jsdoc */
 "use strict";
-/* global assert isVowel*/
+/* global  */
 describe2("isVowel", vowelTest);
    
 
