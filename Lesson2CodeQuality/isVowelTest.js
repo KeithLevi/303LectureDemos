@@ -14,17 +14,19 @@ describe("isVowel", function () {
     });
     it("o is vowel", function () {
         assert.equal(isVowel("o"), true);
-    });    
+    });
     it("u is vowel", function () {
         assert.equal(isVowel("u"), true);
-    });          
-
-    it("z is not vowel", function () {
-        assert.equal(isVowel("z"), false);
     });
+
+    it("z is not vowel", test7);
 
     it("5 is not vowel", function () {
         assert.equal(isVowel("5"), false);
     });
+
+    function test7 () {
+        assert.equal(isVowel("z"), false);
+    }
 
 });
