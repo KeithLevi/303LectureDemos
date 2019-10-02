@@ -1,11 +1,5 @@
 "use strict";
 
-let node3 = {
-    name: "p",
-    value: "This is text in the a paragraph",
-    children: null
-};
-
 let node4 = {
     name: "label",
     value: "Name", 
@@ -18,13 +12,17 @@ let node5 = {
     children: null
 };
 
+let node3 = {
+    name: "p",
+    value: "This is text in the a paragraph",
+    children: null
+};
+
 let node2 = {
     name: "div",
     value: null,
     children: [node4, node5]
 };
-
-
 
 let node1 = {
     name: "body",
@@ -57,7 +55,9 @@ function treeIteration(node) {
         let nextNode = childNodes.shift();  //remove the first node
         console.log(nextNode.name + ":  " + nextNode.value);
         if (nextNode.children !== null) {
-            childNodes = childNodes.concat(nextNode.children); //get any children of the node just processed
+            /* get all children of nextNode and also node children other than nextNode */
+            const childNodes2 = childNodes.concat(nextNode.children); //2 ways of concatenating array elements into a single array
+            childNodes = [ ...childNodes, ...nextNode.children];
         }
     }
 }
