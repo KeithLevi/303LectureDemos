@@ -34,9 +34,9 @@ let node1 = {
 function treeWalk(node) {
     console.log(node.name + ":  " + node.value);
     let childNodes = node.children;
-    if (childNodes) { //then recurse through the array of children
+    if (childNodes) { 
         
-        childNodes.forEach(treeWalk);
+        childNodes.forEach(treeWalk); //loop through all children
 
     }
 }
