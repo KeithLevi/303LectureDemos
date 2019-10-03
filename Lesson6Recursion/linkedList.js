@@ -57,18 +57,18 @@ function printListLoop(list) {
 // eslint-disable-next-line require-jsdoc
 function contains(node, target) {
     //debugger;
-      if (node.value === target) {
+    if (node.value === target) {
         return true;
-      } else {
+    } else {
         if (node.next === null) {
-          return false;
+            return "hello";
         } else {
-          contains(node.next, target);
+            contains(node.next, target);
         }
-      }
     }
-    
+}
 
-    
-    console.log("contains 1? " + contains(list, 1));
-    console.log("contains 333? " + contains(list, 333));
+
+
+console.log("contains 1? " + contains(list, 1));
+console.log("contains 333? " + contains(list, 333));
