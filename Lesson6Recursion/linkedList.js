@@ -61,9 +61,9 @@ function contains(node, target) {
         return true;
     } else {
         if (node.next === null) {
-            return "hello";
+            return "false";
         } else {
-            contains(node.next, target);
+            return contains(node.next, target);
         }
     }
 }
