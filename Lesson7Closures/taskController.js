@@ -1,4 +1,6 @@
-tasksController = function() {
+/* eslint-disable */
+
+const tasksController = function() {
     var taskPage;
     var initialized = false;
   

@@ -1,4 +1,4 @@
-/* eslint-disable strict */
+/* eslint-disable  */
 //"use strict";
 
 // eslint-disable-next-line require-jsdoc
