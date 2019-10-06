@@ -2,10 +2,10 @@
 //"use strict";
 
 // eslint-disable-next-line require-jsdoc
-function sayHi() {
+/* function sayHi() {
     alert("Hello");
     
-  }
+  }  */
   
   setTimeout(sayHi(), 5000);
   
@@ -13,7 +13,12 @@ function sayHi() {
   // eslint-disable-next-line require-jsdoc
   function sayHi(phrase, who) {
     alert( phrase + ", " + who );
-    return () => alert("hello from the return of the second sayHi");
+    return arrowFn;
   }
-  setTimeout(sayHi, 5000, "Hello", "John"); // Hello, John
+  //setTimeout(sayHi, 6000, "Hello", "John"); // Hello, John
+
+  function arrowFn() {
+    alert("hello from the return of the second sayHi");
+
+  }
   
