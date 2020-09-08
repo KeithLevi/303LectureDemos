@@ -1,6 +1,6 @@
 /* eslint-disable */
 function getMaxSubSum(arr) {
-    let maxSum = 0;
+    let maxSum = -10000000;
     let partialSum = 0;
   
     for (let item of arr) { // for each item of arr
@@ -12,7 +12,7 @@ function getMaxSubSum(arr) {
     return maxSum;
   }
   
-  console.log( getMaxSubSum([-1, 20, -19, 30, -9]) ); // 30
+  console.log( getMaxSubSum([-1, 20, -22, 30, -9]) ); // 30
   console.log( getMaxSubSum([-1, 2, 3, -9, 11]) ); // 11
   console.log( getMaxSubSum([-2, -1, 1, 2]) ); // 3
   console.log( getMaxSubSum([100, -9, 2, -3, 5]) ); // 100
