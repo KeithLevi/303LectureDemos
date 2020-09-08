@@ -1,3 +1,4 @@
+/* eslint-disable  */
 function recurseSum(array) {
 
     if (array.length === 1) {
