@@ -33,7 +33,7 @@ abe.descendents.push(homer);
 homer.descendents.push(bart, lisa, maggie);
 
 /**
- *  recurses through tree and logs the value of each node to console
+ *  1. recurses through tree and logs the value of each node to console
  * @param {object} node is the root of a tree
  * @returns {undefined} by default
  */
@@ -49,7 +49,7 @@ function treeWalk(node) {
 treeWalk(abe);
 
 /**
- * 1.  Searches through tree until find the target as the value of a node
+ * 2. Searches through tree until find the target as the value of a node
  * @param {object} node that is the root of a tree or subtree
  * @param {string} target value that i am searching for in the tree
  * @returns {boolean} true if the target is in the tree, else false
@@ -72,12 +72,41 @@ function treeFind(node, target) {
     return false;
 }
 
-console.log(treeFind(abe, "Lisa"));
-console.log(treeFind(abe, "Crusty"));
+console.log("should be true for Lisa:" , treeFind(abe, "Lisa"));
+console.log("should be false for Crusty:" , treeFind(abe, "Crusty"));
 
 
 /**
- * solution to exercise 1 from Sophia 
+ * 3. Searches through tree until find the target as the value of a node and returns the node
+ * @param {object} node that is the root of a tree or subtree
+ * @param {string} target value that i am searching for in the tree
+ * @returns {object} returns the target if is in the tree, else null
+ */
+function findSubtree(node, target) {
+
+    if (node.value === target) {
+        return node;
+    }
+    if (node.descendents === null) {
+        return null;
+    } else {
+        let childNodes = node.descendents;
+        for (let anode of childNodes) {
+            const foundNode = findSubtree(anode, target);
+            if (foundNode) {
+                return foundNode;
+            }
+        }
+    }
+    return null;
+}
+
+console.log("should return Lisa node: ", findSubtree(abe, "Lisa"));
+console.log("should return null: ", findSubtree(abe, "Crusty"));
+
+
+/**
+ * solution to exercise 2 from Sophia 
  * @param {object} treeNode is root of a tree or subtree
  * @param {string} searchValue is the target to match
  * @returns {boolean} true if found else false
@@ -110,7 +139,7 @@ function runIsValueInTree() {
 runIsValueInTree();
 
 /**
- * 5.  Walk through the tree and apply the function to each node  
+ * 6.  Walk through the tree and apply the function to each node  
  * @param {object} node that is the root of a tree or subtree
  * @param {string} modifierFunc is a function to be applied to each node
  * @returns {undefined} no explicit return
@@ -133,8 +162,9 @@ function addStars(node) {
     node.value = "***" + node.value + "***";
 }
 
-treeModifier(abe, addStars);
-treeWalk(abe);
+const abeClone = JSON.parse(JSON.stringify(abe));
+treeModifier(abeClone, addStars);
+treeWalk(abeClone);
 
 /**
  * 2.	Given a target value, return the subtree with the found node as it’s root or null if no match.  
@@ -162,14 +192,14 @@ function findSubtree(node, target) {
 }
 
 console.log("findSubtree should be Lisa node: ");
-console.log(findSubtree(abe, "***Lisa***"));
+console.log(findSubtree(abe, "Lisa"));
 console.log("findSubtree should be Homer node: ");
-console.log(findSubtree(abe, "***Homer***"));
+console.log(findSubtree(abe, "Homer"));
 console.log("findSubtree should be null: " + findSubtree(abe, "Crusty"));
 
 
 /**
- * 3.	Create a new class ListNode (based on TreeNode below) that generates a linked list of Abe, Homer, Bart, Lisa, Maggie instead of a tree.
+ * 4.	Create a new class ListNode (based on TreeNode below) that generates a linked list of Abe, Homer, Bart, Lisa, Maggie instead of a tree.
  */
 class ListNode {
     /**
@@ -196,7 +226,7 @@ const abel = new ListNode("Abe", homerl);
 
 
 /**
- * 4.	Given a target value in the list, return the node that contains the target value or null if no match. 
+ * 5.	Given a target value in the list, return the node that contains the target value or null if no match. 
  * @param {object} node that is the head of a list
  * @param {string} target value that i am searching for in the list
  * @returns {boolean} node in the list that matches the target, else null
