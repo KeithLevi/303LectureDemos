@@ -30,6 +30,56 @@ let node1 = {
     value: null,
 };
 
+/**
+ * @param {object} node is a tree node
+ * @returns {undefined} 
+ * we are just printing, not returning anythig
+ */
+function printName(node) {
+    /* base case -- if children is null or empty */
+    if (node.children === null) {
+        console.log(node.name, ":", node.value);
+        return node.name;
+    } else { //reductive recursion step
+        console.log(node.name, ":", node.value);
+        for (let child of node.children) {
+            printName(child);
+        }
+    }
+}
+let printResult = printName(node1);
+console.log("printResult is:", printResult);
+
+/**
+ * @param {object} node is a tree node
+ * @param {string} target is a string we are matching
+ * @returns {Boolean} true if target is in tree
+ *  */
+function contains(node, target) {
+    /* base case -- if children is null or empty */
+    if (node.children === null) {
+        if (node.name === target) {
+            return true;
+        } else {
+            return false;
+        }
+    } else { //reductive recursion step
+        let childResult = false;
+        if (node.name === target){
+            return true;
+        } 
+        for (let child of node.children) {
+            childResult = contains(child, target);
+            if (childResult === true) {
+                return true;
+            }
+        }
+        return false; //did not find the target 
+    }
+}
+
+console.log("testing div, should be true: ", contains(node1, "div"));
+console.log("testing span, should be false: ", contains(node1, "span"));
 //eslint-disable-next-line require-jsdoc
 function treeWalk(node) {
     console.log(node.name + ":  " + node.value);
@@ -41,7 +91,7 @@ function treeWalk(node) {
     }
 }
 
-treeWalk(node1);
+//treeWalk(node1);
 
 
 
@@ -73,7 +123,7 @@ function treeWalkReduct(node) {
     return nameArray;
 }
 
-console.log(treeWalkReduct(node1));
+//console.log(treeWalkReduct(node1));
 
 
 /**
@@ -100,15 +150,15 @@ function treeIteration(node) {
     }
 }
 
-console.log("iterative version");
-const node1Clone = JSON.parse(JSON.stringify(node1));
-treeIteration(node1Clone);
-console.log("node1 after iterative version: ", node1);
+// console.log("iterative version");
+// const node1Clone = JSON.parse(JSON.stringify(node1));
+// treeIteration(node1Clone);
+// console.log("node1 after iterative version: ", node1);
 
-/* sketch for making a deep clone  of tree 
+/* sketch for making a deep clone  of tree
  * if has no children objects then make a shallow clone (spread operator for any arrays) -- assume the children property (?)
  * if has property that is an object then the value of that property will be what is returned by a recursive call to deep clone (assume no children property?)
  * children property must hold other tree nodes
- * recursively call treeclone on each of them and add what they return to the cloned children property array 
+ * recursively call treeclone on each of them and add what they return to the cloned children property array
  * ???
  */
