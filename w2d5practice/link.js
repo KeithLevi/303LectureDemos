@@ -14,7 +14,7 @@ let head = { val: 10, next: node2 };
 //find with value target starting at the head
 function  findNode(head, target) {
     let currentNode = head;
-    while (true) {
+    while (currentNode) {
         if (currentNode.val === target) {
             return currentNode;
         } else {

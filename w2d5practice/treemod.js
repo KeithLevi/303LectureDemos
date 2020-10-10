@@ -41,6 +41,7 @@ alert( a === b);
  */
 function starFunction(node){
     node.value = "***" + node.value + "***";
+    console.log('from starFunction: ', node.value);
     return undefined;
 }
 
@@ -77,6 +78,8 @@ class TreeNode {
     abe.descendents.push(homer);
     homer.descendents.push(bart, lisa, maggie);
 
-    console.log(treeModifier(abe, caps));
+    console.log(treeModifier(abe, starFunction));
     console.log('now tree has stars', abe);
+    console.log(treeModifier(abe, caps));
+    console.log('now tree is caps', abe);
 
